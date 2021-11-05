@@ -1,3 +1,4 @@
+setInterval(showTime, 1000);
 function showTime() {
   let time = new Date();
   let sec = time.getSeconds();
@@ -6,24 +7,25 @@ function showTime() {
   let month = time.getMonth() + 1;
   let date = time.getDate();
   let year = time.getFullYear();
-  let ampm = [];
+  let am_pm = [];
+  let fullTime = hour + ":" + min + ":" + sec + am_pm;
 
   if (hour > 12 && hour < 24) {
     hour = hour - 12;
-    ampm.push('pm')
+    am_pm.push('pm')
   } else if (hour == 12) {
-    ampm.push('pm')
+    am_pm.push('pm')
   } else if (hour == 24) {
     hour = hour - 24;
-    ampm.push('am');
+    am_pm.push('am');
   } else {
     ampm.push('am')
   }
 
+  document.getElementById("clock").innerHTML = fullTime;
 
-
-  console.log(`${hour}:${min}:${sec}${ampm} ${date}-${month}-${year}`);
+  //console.log(`${hour}:${min}:${sec}${am_pm} ${date}-${month}-${year}`);
 }
 
 
-showTime()
+showTime();
