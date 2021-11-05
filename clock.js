@@ -8,7 +8,6 @@ function showTime() {
   let date = time.getDate();
   let year = time.getFullYear();
   let am_pm = [];
-  let fullTime = hour + ":" + min + ":" + sec + am_pm;
 
   if (hour > 12 && hour < 24) {
     hour = hour - 12;
@@ -22,9 +21,14 @@ function showTime() {
     ampm.push('am')
   }
 
+  hour = hour < 10 ? "0" + hour : hour;
+    min = min < 10 ? "0" + min : min;
+    sec = sec < 10 ? "0" + sec : sec;
+
+  let fullTime = hour + ":" + min + ":" + sec + " " + am_pm + " " + date + "/" + month + "/" + year;
+
   document.getElementById("clock").innerHTML = fullTime;
 
-  //console.log(`${hour}:${min}:${sec}${am_pm} ${date}-${month}-${year}`);
 }
 
 
