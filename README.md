@@ -1,1 +1,1 @@
-# beginner-projects
+# clock-js
